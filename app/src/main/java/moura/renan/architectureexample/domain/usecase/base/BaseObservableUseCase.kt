@@ -1,4 +1,4 @@
-package moura.renan.architectureexample.usecase
+package moura.renan.architectureexample.domain.usecase.base
 
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers

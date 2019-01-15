@@ -1,8 +1,8 @@
-package moura.renan.architectureexample.dao
+package moura.renan.architectureexample.data.dao
 
 import android.arch.persistence.room.*
 import io.reactivex.Flowable
-import moura.renan.architectureexample.model.Note
+import moura.renan.architectureexample.data.model.Note
 
 @Dao
 interface NoteDao {

@@ -1,4 +1,4 @@
-package moura.renan.architectureexample.model
+package moura.renan.architectureexample.data.model
 
 import android.arch.persistence.room.Entity
 import android.arch.persistence.room.PrimaryKey
