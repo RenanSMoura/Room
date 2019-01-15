@@ -1,7 +1,7 @@
 package moura.renan.architectureexample.dao
 
-import androidx.lifecycle.LiveData
 import androidx.room.*
+import io.reactivex.Flowable
 import moura.renan.architectureexample.model.Note
 
 @Dao
@@ -21,6 +21,6 @@ interface NoteDao {
 
 
     @Query("SELECT * FROM NOTE_TABLE ORDER BY priority DESC")
-    fun getAllNotes() : LiveData<List<String>>
+    fun getAllNotes() : Flowable<List<Note>>
 
 }
