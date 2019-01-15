@@ -1,8 +1,8 @@
 package moura.renan.architectureexample
 
+import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.ViewModelProviders
+import android.support.v7.app.AppCompatActivity
 import moura.renan.architectureexample.presentation.viewmodel.NoteViewModel
 
 class MainActivity : AppCompatActivity() {

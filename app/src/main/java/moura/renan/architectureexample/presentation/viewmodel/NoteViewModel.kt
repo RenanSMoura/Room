@@ -1,9 +1,9 @@
 package moura.renan.architectureexample.presentation.viewmodel
 
 import android.app.Application
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import android.arch.lifecycle.LiveData
+import android.arch.lifecycle.MutableLiveData
+import android.arch.lifecycle.ViewModel
 import io.reactivex.observers.DisposableObserver
 import moura.renan.architectureexample.model.Note
 import moura.renan.architectureexample.presentation.Resource

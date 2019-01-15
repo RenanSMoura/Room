@@ -1,6 +1,6 @@
 package moura.renan.architectureexample.dao
 
-import androidx.room.*
+import android.arch.persistence.room.*
 import io.reactivex.Flowable
 import moura.renan.architectureexample.model.Note
 

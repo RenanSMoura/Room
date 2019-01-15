@@ -1,11 +1,11 @@
 package moura.renan.architectureexample.dao
 
+import android.arch.persistence.db.SupportSQLiteDatabase
+import android.arch.persistence.room.Database
+import android.arch.persistence.room.Room
+import android.arch.persistence.room.RoomDatabase
 import android.content.Context
 import android.os.AsyncTask
-import androidx.room.Database
-import androidx.room.Room
-import androidx.room.RoomDatabase
-import androidx.sqlite.db.SupportSQLiteDatabase
 import moura.renan.architectureexample.model.Note
 
 
@@ -39,9 +39,9 @@ abstract class NoteDatabase : RoomDatabase() {
         private val noteDao: NoteDao = db.getNoteDao()
 
         override fun doInBackground(vararg voids: Void): Void? {
-            noteDao.insert(Note(1,"Title 1", "Description 1"))
-            noteDao.insert(Note(2,"Title 2", "Description 2" ))
-            noteDao.insert(Note(3,"Title 3", "Description 3"))
+            noteDao.insert(Note(1,"Title 1", "Description 1",1))
+            noteDao.insert(Note(2,"Title 2", "Description 2" ,1))
+            noteDao.insert(Note(3,"Title 3", "Description 3",1))
             return null
         }
     }
