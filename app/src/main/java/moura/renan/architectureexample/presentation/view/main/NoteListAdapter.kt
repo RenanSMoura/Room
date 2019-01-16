@@ -1,4 +1,4 @@
-package moura.renan.architectureexample.presentation.view
+package moura.renan.architectureexample.presentation.view.main
 
 
 import android.support.v7.widget.RecyclerView

@@ -1,4 +1,4 @@
-package moura.renan.architectureexample.presentation.view
+package moura.renan.architectureexample.presentation.view.main
 
 import android.arch.lifecycle.Observer
 import android.os.Bundle

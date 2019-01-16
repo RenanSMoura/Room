@@ -7,6 +7,7 @@ import android.widget.LinearLayout
 import android.widget.Toast
 import kotlinx.android.synthetic.main.item_note_view.view.*
 import moura.renan.architectureexample.R
+import moura.renan.architectureexample.presentation.extensions.launchNoteDetailsActivity
 import moura.renan.architectureexample.presentation.model.NoteView
 
 class ItemNoteView @JvmOverloads
@@ -21,8 +22,9 @@ constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
         textTitle.text = note.title
         textContent.text = note.description
         textPriority.text = note.priority.toString()
+
         setOnClickListener {
-            Toast.makeText(context,"Open Edit Activity", Toast.LENGTH_LONG).show()
+            context.launchNoteDetailsActivity(note)
         }
     }
 

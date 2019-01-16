@@ -1,4 +1,4 @@
-package moura.renan.architectureexample.presentation.view
+package moura.renan.architectureexample.presentation.view.main
 
 import android.arch.lifecycle.LiveData
 import android.arch.lifecycle.MutableLiveData
