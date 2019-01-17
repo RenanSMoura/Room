@@ -11,7 +11,7 @@ import moura.renan.architectureexample.presentation.model.NoteView
 
 class NoteListAdapter : RecyclerView.Adapter<NoteListAdapter.ViewHolder> (){
 
-    private val notesList : MutableList<NoteView> = mutableListOf()
+    private  var notesList: List<NoteView> = listOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_note,parent,false)
@@ -19,7 +19,7 @@ class NoteListAdapter : RecyclerView.Adapter<NoteListAdapter.ViewHolder> (){
     }
 
     fun updateList(notes : List<NoteView>) {
-        notesList.addAll(notes)
+        notesList = notes
         notifyDataSetChanged()
     }
 

@@ -7,9 +7,12 @@ import moura.renan.architectureexample.presentation.model.NoteView
 import moura.renan.architectureexample.presentation.view.details.NoteDetailsActivity
 
 
-fun Context.launchNoteDetailsActivity(noteView : NoteView){
+fun Context.launchNoteDetailsActivity(noteView : NoteView? = null){
     startActivity(Intent(this,NoteDetailsActivity::class.java).apply {
-        putExtra("NOTE_VIEW_EDIT",noteView)
+        if ( noteView != null) {
+            putExtra("NOTE_VIEW_EDIT",noteView)
+        }
+
     })
 }
 

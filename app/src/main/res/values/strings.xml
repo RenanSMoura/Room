@@ -3,4 +3,7 @@
     <string name="hint_note_title">Title</string>
     <string name="hint_note_description">Description</string>
     <string name="menu_save_note">Save Note</string>
+	<string name="menu_delete_note">Delete Note</string>
+	<string name="menu_delete_all_notes">Delete ALL Notes</string>
+	<string name="tv_priority">Priority</string>
 </resources>

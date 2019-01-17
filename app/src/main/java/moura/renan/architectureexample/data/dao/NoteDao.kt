@@ -7,10 +7,10 @@ import moura.renan.architectureexample.data.model.Note
 @Dao
 interface NoteDao {
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(note : Note)
 
-    @Update
+    @Update(onConflict = OnConflictStrategy.REPLACE)
     fun update(note: Note)
 
     @Delete

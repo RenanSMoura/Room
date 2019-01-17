@@ -10,4 +10,12 @@ data class NoteView( val id: Int = 0,
 
                      val description: String,
 
-                     val priority: Int = 0) : Parcelable
+                     val priority: Float = 0f) : Parcelable {
+
+
+
+
+    fun isNew() : Boolean {
+        return id == 0
+    }
+}

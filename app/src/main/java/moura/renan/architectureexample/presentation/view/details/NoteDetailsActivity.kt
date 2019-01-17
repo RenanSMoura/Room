@@ -16,42 +16,46 @@ import org.koin.android.viewmodel.ext.android.viewModel
 
 class NoteDetailsActivity : AppCompatActivity() {
 
-    private val viewModel : NoteDetailViewModel by viewModel()
-    private   var noteToUpdate : NoteView? = null
+    private val viewModel: NoteDetailViewModel by viewModel()
+    private var noteToUpdate: NoteView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_note_details)
+
         noteToUpdate = intent?.extras?.get("NOTE_VIEW_EDIT") as NoteView?
 
+        actionBar?.setDisplayHomeAsUpEnabled(true)
 
         populateFields(noteToUpdate)
 
         viewModel.observeLiveData().observe(this, Observer {
-            when(it?.status){
+            when (it?.status) {
                 ResourceState.SUCCESS -> {
                     progressBar.visibility = View.INVISIBLE
-                    toast("sucess")
                     finish()
 
                 }
                 ResourceState.ERROR -> {
                     progressBar.visibility = View.INVISIBLE
-                    toast(it.message!!)
                 }
                 ResourceState.LOADING -> {
                     progressBar.visibility = View.VISIBLE
                 }
 
             }
-        } )
+        })
 
     }
 
+    private fun checkIfIsNewNote( menu : Menu?){
+        menu?.findItem(R.id.deleteNote)?.isVisible = noteToUpdate != null && menu != null
+    }
 
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu_main, menu)
+        menuInflater.inflate(R.menu.menu_note_details, menu)
+        checkIfIsNewNote(menu)
         return true
     }
 
@@ -61,8 +65,16 @@ class NoteDetailsActivity : AppCompatActivity() {
                 updateNote()
                 true
             }
+            R.id.deleteNote -> {
+                deleteNote()
+                true
+            }
             else -> super.onOptionsItemSelected(item)
         }
+    }
+
+    private fun deleteNote(){
+        viewModel.deleteNote(noteToUpdate)
     }
 
     private fun populateFields(noteView: NoteView?) {
@@ -74,14 +86,23 @@ class NoteDetailsActivity : AppCompatActivity() {
 
     private fun updateNote() {
         val note = createNoteFromView()
-        viewModel.updateNote(note)
+        if(note.isNew()) {
+            viewModel.createNote(note)
+        } else {
+            viewModel.updateNote(note)
+        }
+
     }
 
 
-    private fun createNoteFromView(): NoteView{
+    private fun createNoteFromView(): NoteView {
         return NoteView(
-            id = noteToUpdate?.id!!,
+            id = noteToUpdate?.id ?: 0,
             title = etNoteTitle.getString(),
-            description = etNoteDescription.getString())
+            description = etNoteDescription.getString(),
+            priority = ratingPriority.rating
+        )
+
+
     }
 }
