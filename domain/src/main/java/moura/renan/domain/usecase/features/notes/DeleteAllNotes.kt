@@ -9,6 +9,8 @@ class DeleteAllNotes(
     private val notesRepository: NotesRepository,
     postExecutionThread: PostExecutionThread
 ) : BaseCompletableUseCase<Unit>(postExecutionThread) {
+
+
     override fun buildUseCaseCompletable(param: Unit?): Completable {
         return notesRepository.deleteAllNotes()
     }

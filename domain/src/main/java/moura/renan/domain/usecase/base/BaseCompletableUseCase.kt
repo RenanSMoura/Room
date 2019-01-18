@@ -11,7 +11,7 @@ abstract class BaseCompletableUseCase<in Params> constructor(private val postExe
 
     private val disposables = CompositeDisposable()
 
-    abstract fun buildUseCaseCompletable(param: Params? = null): Completable
+    open abstract fun buildUseCaseCompletable(param: Params? = null): Completable
 
     open fun execute(observer: DisposableCompletableObserver, param: Params? = null) {
         val observable = this.buildUseCaseCompletable(param).subscribeOn(Schedulers.io())
