@@ -5,6 +5,7 @@ import com.nhaarman.mockito_kotlin.whenever
 import io.reactivex.Completable
 import moura.renan.domain.executor.PostExecutionThread
 import moura.renan.domain.repository.NotesRepository
+import moura.renan.domain.usecase.features.notes.factory.NoteDataFactory
 import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Test
@@ -34,9 +35,16 @@ class SaveNoteTest {
     }
 
 
+    @Test
+    fun saveNote() {
+        val note = NoteDataFactory.createNote()
+        stubSaveNote(Completable.complete())
+        saveNoteUseCase.buildUseCaseCompletable(note).test().assertComplete()
+    }
+
 
     @Test(expected =  UnsupportedOperationException::class)
-    fun saveNoteComplete() {
+    fun saveNoteThrowsExceptionWhenNoteisNull() {
         saveNoteUseCase.buildUseCaseCompletable().test().assertComplete()
     }
 
