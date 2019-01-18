@@ -6,11 +6,11 @@ import android.arch.persistence.room.PrimaryKey
 @Entity(tableName = "note_table")
 data class Note(
     @PrimaryKey(autoGenerate = true)
-    val id: Int,
+    var id: Int,
 
     val title: String,
 
-    val description: String,
+    var description: String,
 
     val priority: Int
 )

@@ -5,22 +5,22 @@ import io.reactivex.Flowable
 import moura.renan.data.model.Note
 
 @Dao
-interface NoteDao {
+abstract class NoteDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insert(note : Note)
+    abstract fun insert(note: Note)
 
     @Update(onConflict = OnConflictStrategy.REPLACE)
-    fun update(note: Note)
+    abstract fun update(note: Note)
 
     @Delete
-    fun delet(note : Note)
+    abstract fun delet(note: Note)
 
     @Query("DELETE FROM NOTE_TABLE")
-    fun deleteAllNotes()
+    abstract fun deleteAllNotes()
 
 
     @Query("SELECT * FROM NOTE_TABLE ORDER BY priority DESC")
-    fun getAllNotes() : Flowable<List<Note>>
+    abstract fun getAllNotes() : Flowable<List<Note>>
 
 }
