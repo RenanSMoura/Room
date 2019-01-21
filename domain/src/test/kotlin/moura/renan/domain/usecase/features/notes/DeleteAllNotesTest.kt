@@ -12,6 +12,7 @@ import org.junit.runner.RunWith
 import org.mockito.Mock
 import org.mockito.MockitoAnnotations
 import org.mockito.junit.MockitoJUnitRunner
+import java.lang.UnsupportedOperationException
 
 @RunWith(MockitoJUnitRunner::class)
 open class DeleteAllNotesTest {

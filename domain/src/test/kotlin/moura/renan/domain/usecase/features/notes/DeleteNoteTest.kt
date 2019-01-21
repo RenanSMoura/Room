@@ -14,6 +14,7 @@ import org.junit.runner.RunWith
 import org.mockito.Mock
 import org.mockito.MockitoAnnotations
 import org.mockito.junit.MockitoJUnitRunner
+import java.lang.UnsupportedOperationException
 
 
 @RunWith(MockitoJUnitRunner::class)
@@ -40,6 +41,11 @@ class DeleteNoteTest {
         stubDeleteOneNote(Completable.complete())
         deleteNoteUseCase.buildUseCaseCompletable(
             NoteDataFactory.createNote()).test().assertComplete()
+    }
+
+    @Test(expected =  UnsupportedOperationException::class)
+    fun callDeleteNoteWithNoParameterThrowsException(){
+        deleteNoteUseCase.buildUseCaseCompletable().test()
     }
 
     @Test
